@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trắc Nghiệm Tương Tác: Tích Phân Suy Rộng - Phương pháp DUYMT</title>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
     <style>
         :root {
             --main-color: #005aa0;
@@ -42,7 +56,7 @@
         header h1 {
             color: var(--main-color);
             margin: 0;
-            font-size: 28px;
+            font-size: 26px;
         }
 
         header p {
@@ -236,47 +250,47 @@
 </div>
 
 <script>
-    // Ngân hàng dữ liệu 20 câu hỏi phân tầng
+    // Đã bọc toàn bộ mã toán học vào định dạng $...$ và \\[...\\] để tương thích hoàn toàn với MathJax
     const quizData = [
         // ================= LÝ THUYẾT (5 câu) =================
         {
             type: "lythuyet",
-            question: "Bản chất ẩn giấu đằng sau ký hiệu cận vô cực của tích phân suy rộng ∫_a^{+∞} f(x)dx là gì?",
+            question: "Bản chất ẩn giấu đằng sau ký hiệu cận vô cực của tích phân suy rộng $\\int_a^{+\\infty} f(x)dx$ là gì?",
             options: [
                 "Tính trực tiếp diện tích của một hình vô tận dãn nở.",
-                "Cắt đuôi vô tận tại một rào chắn hữu hạn t, tính diện tích an toàn trên [a, t], rồi đẩy t ra vô cực bằng giới hạn.",
+                "Cắt đuôi vô tận tại một rào chắn hữu hạn $t$, tính diện tích an toàn trên $[a, t]$, rồi đẩy $t$ ra vô cực bằng giới hạn.",
                 "Một phép tính không có kết quả xác định vì vùng không gian không đóng lại.",
                 "Chỉ là một quy ước ký hiệu không có ý nghĩa hình học thực tế."
             ],
             correct: 1,
-            explain: "Đúng theo triết lý Deconstruction (mổ xẻ cấu trúc) của DUYMT: Vì tư duy con người không thể túm lấy cái vô tận cùng một lúc, ta bắt buộc phải chặn nó tại điểm hữu hạn t, tính toán bình thường rồi mới thả tự do cho t tiến ra xa mãi mãi qua phép toán lim.",
-            trick: "Mẹo DUYMT: Cứ thấy ∫ tới vô cực thì bản chất thực sự của nó là một phép toán Giới hạn (Lim) ôm lấy một tích phân hữu hạn."
+            explain: "Đúng theo triết lý Deconstruction (mổ xẻ cấu trúc) của DUYMT: Vì tư duy con người không thể túm lấy cái vô tận cùng một lúc, ta bắt buộc phải chặn nó tại điểm hữu hạn $t$, tính toán bình thường rồi mới thả tự do cho $t$ tiến ra xa mãi mãi qua phép toán $\\lim$.",
+            trick: "Mẹo DUYMT: Cứ thấy tích phân tới vô cực thì bản chất thực sự của nó là một phép toán Giới hạn (Lim) ôm lấy một tích phân hữu hạn thông thường."
         },
         {
             type: "lythuyet",
             question: "Khi nào một tích phân suy rộng được gọi là hội tụ?",
             options: [
-                "Khi hàm số f(x) liên tục tại mọi điểm.",
+                "Khi hàm số $f(x)$ liên tục tại mọi điểm.",
                 "Khi cận trên của tích phân là một số rất lớn.",
                 "Khi giới hạn tính toán diện tích tồn tại và là một số hữu hạn.",
                 "Khi diện tích dưới đồ thị bùng nổ ra bằng vô cùng lớn."
             ],
             correct: 2,
             explain: "Tích phân suy rộng là cuộc đua giữa không gian mở và tốc độ sụt giảm giá trị. Nếu giới hạn tiến về một con số đứng yên (hữu hạn), tức là phần diện tích đó tuy dài vô hạn về không gian nhưng gói gọn về giá trị, ta gọi là hội tụ.",
-            trick: "Hội tụ = Gom về một số thực cụ thể. Phân kỳ = Chạy mất hút ra vô cực hoặc không đứng yên."
+            trick: "Hội tụ = Gom về một số thực cụ thể. Phân kỳ = Chạy mất hút ra vô cực hoặc dao động không đứng yên."
         },
         {
             type: "lythuyet",
-            question: "Dựa trên định lý cấu trúc về p-tích phân, tích phân ∫_1^{+∞} (1/x^p) dx sẽ hội tụ khi và chỉ khi nào?",
+            question: "Dựa trên định lý cấu trúc về $p$-tích phân, tích phân $\\int_1^{+\\infty} \\frac{1}{x^p} dx$ sẽ hội tụ khi và chỉ khi nào?",
             options: [
-                "p < 1",
-                "p ≤ 1",
-                "p > 1",
-                "p ≥ 0"
+                "$mọi p < 1$",
+                "$mọi p \\le 1$",
+                "$mọi p > 1$",
+                "$mọi p \\ge 0$"
             ],
             correct: 2,
-            explain: "Đây là hằng số nhạy cảm của vô cực. Khi p > 1, đồ thị hàm số sụt giảm độ cao về 0 cực kỳ nhanh, kéo theo diện tích phần đuôi co hẹp nhanh hơn tốc độ dãn nở của trục hoành. Kết quả tích phân sinh ra giá trị hữu hạn.",
-            trick: "Mẹo nhớ DUYMT: Muốn đạt kết quả hữu hạn trên hành trình vô hạn, năng lực của bạn phải số mũ hóa lớn hơn 1 (p > 1). Nếu p ≤ 1, năng lực giảm chậm, bạn sẽ bị tan biến vào phân kỳ."
+            explain: "Đây là hằng số nhạy cảm của vô cực. Khi $p > 1$, đồ thị hàm số sụt giảm độ cao về $0$ cực kỳ nhanh, kéo theo diện tích phần đuôi co hẹp nhanh hơn tốc độ dãn nở của trục hoành. Kết quả tích phân sinh ra giá trị hữu hạn.",
+            trick: "Mẹo nhớ DUYMT: Muốn đạt kết quả hữu hạn trên hành trình vô hạn, năng lực của bạn phải số mũ hóa lớn hơn 1 ($p > 1$). Nếu $p \\le 1$, bạn sẽ bị tan biến vào phân kỳ."
         },
         {
             type: "lythuyet",
@@ -288,12 +302,12 @@
                 "Vì đây chỉ là một nghịch lý giả thuyết, không liên quan đến giải tích."
             ],
             correct: 1,
-            explain: "Hành động ăn bánh liên tục: 1/2 + 1/4 + 1/8 + ... thực chất là một chuỗi thu hẹp. Lượng bánh sụt giảm theo tốc độ hàm mũ, thắng được thời gian vô hạn, khiến tổng số bánh mãi mãi tiến sát về 1 chiếc bánh nguyên vẹn.",
-            trick: "Mẹo liên hệ: Tốc độ hàm mũ y = a^x (với a < 1) rơi rụng về 0 siêu nhanh, luôn luôn kéo tích phân suy rộng về phía hội tụ."
+            explain: "Hành động ăn bánh liên tục: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + ...$ thực chất là một chuỗi thu hẹp. Lượng bánh sụt giảm theo tốc độ hàm mũ, thắng được thời gian vô hạn, khiến tổng số bánh mãi mãi tiến sát về $1$ chiếc bánh nguyên vẹn.",
+            trick: "Mẹo liên hệ: Tốc độ hàm mũ $y = a^x$ (với $a < 1$) rơi rụng về 0 siêu nhanh, luôn luôn kéo tích phân suy rộng về phía hội tụ."
         },
         {
             type: "lythuyet",
-            question: "Nếu một tích phân suy rộng kết quả giới hạn cho ra bằng -∞, kết luận nào sau đây là đúng?",
+            question: "Nếu một tích phân suy rộng kết quả giới hạn cho ra bằng $-\\infty$, kết luận nào sau đây là đúng?",
             options: [
                 "Tích phân hội tụ về giá trị âm.",
                 "Tích phân không xác định.",
@@ -301,209 +315,209 @@
                 "Hàm số không liên tục nên không tính được."
             ],
             correct: 2,
-            explain: "Bất kể giới hạn ra +∞, -∞ hay không tồn tại (dao động), vùng diện tích đều không bị kiểm soát trong một giá trị hữu hạn, do đó theo định nghĩa cốt lõi, tích phân đó bị phân kỳ.",
-            trick: "Cứ kết quả ra dính chữ Vô cùng (∞) thì 100% kết luận là Phân kỳ."
+            explain: "Bất kể giới hạn ra $+\\infty$, $-\\infty$ hay không tồn tại (dao động), vùng diện tích đều không bị kiểm soát trong một giá trị hữu hạn, do đó theo định nghĩa cốt lõi, tích phân đó bị phân kỳ.",
+            trick: "Cứ kết quả ra dính chữ Vô cùng ($\\infty$) thì 100% kết luận là Phân kỳ."
         },
 
         // ================= BÀI TẬP DỄ (5 câu) =================
         {
             type: "de",
-            question: "Tính tích phân suy rộng: I = ∫_1^{+∞} (1/x^3) dx",
+            question: "Tính tích phân suy rộng: $I = \\int_1^{+\\infty} \\frac{1}{x^3} dx$",
             options: [
-                "I = 1/2",
-                "I = 1/3",
-                "I = +∞ (Phân kỳ)",
-                "I = 1"
+                "$I = 1/2$",
+                "$I = 1/3$",
+                "$I = +\\infty$ (Phân kỳ)",
+                "$I = 1$"
             ],
             correct: 0,
-            explain: "Dùng Deconstruction: ∫_1^t x^{-3} dx = [ -1/(2x^2) ] từ 1 đến t = -1/(2t^2) + 1/2. Khi t → +∞ thì -1/(2t^2) → 0. Kết quả là 1/2.",
-            trick: "Mẹo tính nhanh DUYMT với p-tích phân dạng ∫_1^{+∞} (1/x^p)dx: Kết quả luôn bằng 1 / (p - 1). Ở đây p = 3, nhẩm ngay: 1 / (3 - 1) = 1/2!"
+            explain: "Dùn Deconstruction: $\\int_1^t x^{-3} dx = [ -\\frac{1}{2x^2} ]_1^t = -\\frac{1}{2t^2} + \\frac{1}{2}$. Khi $t \\rightarrow +\\infty$ thì $-\\frac{1}{2t^2} \\rightarrow 0$. Kết quả còn lại là $\\frac{1}{2}$.",
+            trick: "Mẹo tính nhanh DUYMT với $p$-tích phân dạng $\\int_1^{+\\infty} \\frac{1}{x^p}dx$: Kết quả luôn bằng $\\frac{1}{p - 1}$. Ở đây $p = 3$, nhẩm ngay: $\\frac{1}{3 - 1} = \\frac{1}{2}$!"
         },
         {
             type: "de",
-            question: "Xét sự hội tụ và tính giá trị của tích phân: I = ∫_1^{+∞} (1 / x^{1.5}) dx",
+            question: "Xét sự hội tụ và tính giá trị của tích phân: $I = \\int_1^{+\\infty} \\frac{1}{x^{1.5}} dx$",
             options: [
                 "Phân kỳ vì số mũ không nguyên.",
                 "Hội tụ, giá trị bằng 2.",
                 "Hội tụ, giá trị bằng 1.5.",
-                "Phân kỳ, giá trị bằng +∞."
+                "Phân kỳ, giá trị bằng $+\\infty$."
             ],
             correct: 1,
-            explain: "Áp dụng định lý p-tích phân: Ta thấy số mũ p = 1.5 > 1 nên chắc chắn tích phân hội tụ. Giá trị tính nhanh bằng công thức cốt lõi: 1 / (p - 1) = 1 / (1.5 - 1) = 1 / 0.5 = 2.",
-            trick: "Nhìn thấy mũ p > 1 nằm dưới mẫu tại cận vô cực -> Khoanh ngay chữ 'Hội tụ' và áp dụng 1/(p-1)."
+            explain: "Áp dụng định lý $p$-tích phân: Ta thấy số mũ $p = 1.5 > 1$ nên chắc chắn tích phân hội tụ. Giá trị tính nhanh bằng công thức cốt lõi: $\\frac{1}{p - 1} = \\frac{1}{1.5 - 1} = \\frac{1}{0.5} = 2$.",
+            trick: "Nhìn thấy mũ $p > 1$ nằm dưới mẫu tại cận vô cực -> Khoanh ngay chữ 'Hội tụ' và áp dụng $\\frac{1}{p-1}$."
         },
         {
             type: "de",
-            question: "Tính tích phân suy rộng sau: I = ∫_0^{+∞} e^{-x} dx",
+            question: "Tính tích phân suy rộng sau: $I = \\int_0^{+\\infty} e^{-x} dx$",
             options: [
-                "I = 0",
-                "I = -1",
-                "I = +∞",
-                "I = 1"
+                "$I = 0$",
+                "$I = -1$",
+                "$I = +\\infty$",
+                "$I = 1$"
             ],
             correct: 3,
-            explain: "Nguyên hàm của e^{-x} là -e^{-x}. Chặn cận tại t: [-e^{-t}] - [-e^0] = -e^{-t} + 1. Khi t tiến tới vô cùng, e^{-t} tiến về 0 (độ cao sụt giảm siêu tốc), do đó kết quả còn lại là 1.",
-            trick: "Mẹo DUYMT: Hàm sụt giảm tiêu chuẩn e^{-x} chạy từ 0 đến vô cực luôn tạo ra một diện tích vuông vắn bằng đúng 1 đơn vị."
+            explain: "Nguyên hàm của $e^{-x}$ là $-e^{-x}$. Chặn cận tại $t$: $[-e^{-t}] - [-e^0] = -e^{-t} + 1$. Khi $t$ tiến tới vô cùng, $e^{-t}$ tiến về $0$ (độ cao sụt giảm siêu tốc), do đó kết quả còn lại là $1$.",
+            trick: "Mẹo DUYMT: Hàm sụt giảm tiêu chuẩn $e^{-x}$ chạy từ $0$ đến vô cực luôn tạo ra một diện tích vuông vắn bằng đúng $1$ đơn vị."
         },
         {
             type: "de",
-            question: "Khẳng định nào đúng về tích phân sau: I = ∫_1^{+∞} (1 / x) dx",
+            question: "Khẳng định nào đúng về tích phân sau: $I = \\int_1^{+\\infty} \\frac{1}{x} dx$",
             options: [
                 "Hội tụ về 1.",
                 "Hội tụ về 0.",
-                "Phân kỳ về +∞.",
-                "Hội tụ về ln(2)."
+                "Phân kỳ về $+\\infty$.",
+                "Hội tụ về $\\ln(2)$."
             ],
             correct: 2,
-            explain: "Hàm f(x) = 1/x có số mũ p = 1. Theo cấu trúc lõi p-tích phân, khi p = 1 hàm số rơi về 0 quá chậm chạp. Phép toán nguyên hàm tạo ra hàm ln(x). Khi t → +∞, ln(t) cũng bò lên vô tận.",
-            trick: "Mẹo DUYMT: Hàm 1/x là ranh giới sinh tử, nó chính là kẻ lười biếng nhất làm bùng nổ diện tích ra vô cực. Nhìn thấy gạch bỏ ngay phương án hội tụ."
+            explain: "Hàm $f(x) = \\frac{1}{x}$ có số mũ $p = 1$. Theo cấu trúc lõi $p$-tích phân, khi $p = 1$ hàm số rơi về $0$ quá chậm chạp. Phép toán nguyên hàm tạo ra hàm $\\ln(x)$. Khi $t \\rightarrow +\\infty$, $\\ln(t)$ cũng bùng nổ lên vô tận.",
+            trick: "Mẹo DUYMT: Hàm $\\frac{1}{x}$ là ranh giới sinh tử, nó chính là kẻ lười biếng nhất làm bùng nổ diện tích ra vô cực. Nhìn thấy gạch bỏ ngay phương án hội tụ."
         },
         {
             type: "de",
-            question: "Tìm khẳng định đúng về tích phân: I = ∫_1^{+∞} (1 / \sqrt{x}) dx",
+            question: "Tìm khẳng định đúng về tích phân: $I = \\int_1^{+\\infty} \\frac{1}{\\sqrt{x}} dx$",
             options: [
                 "Hội tụ vì hàm số nghịch đảo.",
-                "Phân kỳ vì số mũ p = 1/2 ≤ 1.",
+                "Phân kỳ vì số mũ $p = 1/2 \\le 1$.",
                 "Hội tụ về giá trị bằng 2.",
                 "Phân kỳ về giá trị bằng 0."
             ],
             correct: 1,
-            explain: "Căn bậc hai của x chính là x^{1/2}, suy ra số mũ cấu trúc dưới mẫu là p = 1/2. Vì p = 1/2 ≤ 1 nên đồ thị này cực kỳ bướng bỉnh, cái đuôi của nó rất dày dặn không chịu khép kín diện tích, dẫn đến phân kỳ.",
-            trick: "Nhìn thấy căn bậc hai dưới mẫu (\sqrt{x}) ở cận vô cực -> Tốc độ giảm cực chậm -> Khoanh ngay Phân kỳ."
+            explain: "Căn bậc hai của $x$ chính là $x^{1/2}$, suy ra số mũ cấu trúc dưới mẫu là $p = 1/2$. Vì $p = 1/2 \\le 1$ nên đồ thị này có cái đuôi rất dày dặn không chịu khép kín diện tích, dẫn đến phân kỳ.",
+            trick: "Nhìn thấy căn bậc hai dưới mẫu ($\\sqrt{x}$) ở cận vô cực -> Tốc độ giảm về 0 cực chậm -> Khoanh ngay Phân kỳ."
         },
 
         // ================= BÀI TẬP TRUNG BÌNH (5 câu) =================
         {
             type: "trungbinh",
-            question: "Tính tích phân suy rộng: I = ∫_0^{+∞} e^{-3x} dx",
+            question: "Tính tích phân suy rộng: $I = \\int_0^{+\\infty} e^{-3x} dx$",
             options: [
-                "I = 3",
-                "I = 1/3",
-                "I = Phân kỳ",
-                "I = 0"
+                "$I = 3$",
+                "$I = 1/3$",
+                "$I = Phân kỳ$",
+                "$I = 0$"
             ],
             correct: 1,
-            explain: "Giải nén cấu trúc: Nguyên hàm của e^{-3x} là (-1/3)e^{-3x}. Khi thế cận từ 0 đến t và cho t → +∞, phần chứa t biến mất về 0, chỉ còn lại giá trị tại cận dưới: 0 - (-1/3) = 1/3.",
-            trick: "Mẹo DUYMT hệ số: Với dạng ∫_0^{+∞} e^{-kx} dx (với k > 0), kết quả siêu tốc luôn là 1/k. Ở đây k = 3, kết quả là 1/3."
+            explain: "Giải nén cấu trúc: Nguyên hàm của $e^{-3x}$ là $-\\frac{1}{3}e^{-3x}$. Khi thế cận từ $0$ đến $t$ và cho $t \\rightarrow +\\infty$, phần chứa $t$ biến mất về $0$, chỉ còn lại giá trị tại cận dưới: $0 - (-\\frac{1}{3}) = \\frac{1}{3}$.",
+            trick: "Mẹo DUYMT hệ số: Với dạng $\\int_0^{+\\infty} e^{-kx} dx$ (với $k > 0$), kết quả siêu tốc luôn là $\\frac{1}{k}$. Ở đây $k = 3$, kết quả lập tức là $\\frac{1}{3}$."
         },
         {
             type: "trungbinh",
-            question: "Xét sự hội tụ của tích phân: I = ∫_2^{+∞} [ 1 / (x^2 + 4) ] dx",
+            question: "Xét sự hội tụ của tích phân: $I = \\int_2^{+\\infty} \\frac{1}{x^2 + 4} dx$",
             options: [
                 "Phân kỳ vì có chứa đa thức bậc hai.",
-                "Hội tụ về π/8.",
-                "Hội tụ về π/4.",
-                "Hội tụ về ln(2)."
+                "Hội tụ về $\\pi/8$.",
+                "Hội tụ về $\\pi/4$.",
+                "Hội tụ về $\\ln(2)$."
             ],
             correct: 1,
-            explain: "Nguyên hàm cấu trúc của 1/(x^2 + a^2) là (1/a)arctan(x/a). Ở đây a = 2, nguyên hàm là (1/2)arctan(x/2). Đẩy cận ra vô cực: lim_{t→+∞} (1/2)arctan(t/2) - (1/2)arctan(2/2) = (1/2)*(π/2) - (1/2)*(π/4) = π/4 - π/8 = π/8.",
-            trick: "Mẹo nhìn cấu trúc: Hàm bậc hai dưới mẫu tương đương bậc p = 2 > 1 nên chắc chắn hội tụ. Nhớ rằng lim của arctan ở vô cực luôn chạm trần góc vàng π/2."
+            explain: "Nguyên hàm cấu trúc của $\\frac{1}{x^2 + a^2}$ là $\\frac{1}{a}\\arctan(\\frac{x}{a})$. Ở đây $a = 2$, nguyên hàm là $\\frac{1}{2}\\arctan(\\frac{x}{2})$. Đẩy cận ra vô cực: $\\lim_{t\\rightarrow+\\infty} \\frac{1}{2}\\arctan(\\frac{t}{2}) - \\frac{1}{2}\\arctan(\\frac{2}{2}) = \\frac{1}{2}\\cdot\\frac{\\pi}{2} - \\frac{1}{2}\\cdot\\frac{\\pi}{4} = \\frac{\\pi}{4} - \\frac{\\pi}{8} = \\frac{\\pi}{8}$.",
+            trick: "Mẹo nhìn cấu trúc: Hàm bậc hai dưới mẫu tương đương bậc $p = 2 > 1$ nên chắc chắn hội tụ. Nhớ rằng $\\lim$ của $\\arctan$ ở vô cực luôn chạm trần góc vàng $\\frac{\\pi}{2}$."
         },
         {
             type: "trungbinh",
-            question: "Tính tích phân suy rộng sau bằng phương pháp đổi biến: I = ∫_e^{+∞} [ 1 / (x * (ln x)^2) ] dx",
+            question: "Tính tích phân suy rộng sau bằng phương pháp đổi biến: $I = \\int_e^{+\\infty} \\frac{1}{x(\\ln x)^2} dx$",
             options: [
-                "I = 1",
-                "I = +∞",
-                "I = e",
-                "I = 1/e"
+                "$I = 1$",
+                "$I = +\\infty$",
+                "$I = e$",
+                "$I = 1/e$"
             ],
             correct: 0,
-            explain: "Đặt ẩn phụ dọn dẹp cấu trúc: Đặt u = ln(x) => du = dx/x. Đổi cận: x từ e đến +∞ tương đương u chạy từ 1 đến +∞. Tích phân trở thành ∫_1^{+∞} (1/u^2) du. Đây là p-tích phân kinh điển với p = 2, giá trị bằng 1/(2-1) = 1.",
-            trick: "Mẹo DUYMT: Thành phần 'dx/x' đóng vai trò là chiếc chìa khóa vi phân giải nén lõi ln(x). Đổi biến xong áp dụng ngay công thức p-tích phân 3 giây."
+            explain: "Đặt ẩn phụ dọn dẹp cấu trúc: Đặt $u = \\ln(x) \\Rightarrow du = \\frac{dx}{x}$. Đổi cận: $x$ từ $e$ đến $+\\infty$ tương đương $u$ chạy từ $1$ đến $+\\infty$. Tích phân trở thành $\\int_1^{+\\infty} \\frac{1}{u^2} du$. Đây là $p$-tích phân với $p = 2$, giá trị bằng $\\frac{1}{2-1} = 1$.",
+            trick: "Mẹo DUYMT: Thành phần $\\frac{dx}{x}$ đóng vai trò là chiếc chìa khóa vi phân giải nén lõi $\\ln(x)$. Đổi biến xong áp dụng ngay công thức $p$-tích phân 3 giây."
         },
         {
             type: "trungbinh",
-            question: "Tìm giá trị của tham số m để tích phân I = ∫_1^{+∞} (1 / x^{3m-2}) dx hội tụ?",
+            question: "Tìm giá trị của tham số $m$ để tích phân $I = \\int_1^{+\\infty} \\frac{1}{x^{3m-2}} dx$ hội tụ?",
             options: [
-                "m > 1",
-                "m < 1",
-                "m > 0",
-                "m ≥ 1"
+                "$m > 1$",
+                "$m < 1$",
+                "$m > 0$",
+                "$m \\ge 1$"
             ],
             correct: 0,
-            explain: "Để tích phân dạng này hội tụ, số mũ cấu trúc dưới mẫu bắt buộc phải thỏa mãn điều kiện sinh tồn: p > 1. Nghĩa là 3m - 2 > 1 <=> 3m > 3 <=> m > 1.",
+            explain: "Để tích phân dạng này hội tụ, số mũ cấu trúc dưới mẫu bắt buộc phải thỏa mãn điều kiện sinh tồn: $p > 1$. Nghĩa là $3m - 2 > 1 \\Leftrightarrow 3m > 3 \\Leftrightarrow m > 1$.",
             trick: "Mẹo: Bốc toàn bộ phần số mũ cho lớn hơn 1 rồi giải bất phương trình bậc nhất cực kỳ đơn giản."
         },
         {
             type: "trungbinh",
-            question: "Tính diện tích S của hình phẳng không đóng giới hạn bởi đồ thị y = 1 / (x^2 + 1), trục hoành và hai đường thẳng x = 0, x → +∞.",
+            question: "Tính diện tích $S$ của hình phẳng không đóng giới hạn bởi đồ thị $y = \\frac{1}{x^2 + 1}$, trục hoành và hai đường thẳng $x = 0, x \\rightarrow +\\infty$.",
             options: [
-                "S = 1",
-                "S = π",
-                "S = π/2",
+                "$S = 1$",
+                "$S = \\pi$",
+                "$S = \\pi/2$",
                 "S = Phân kỳ"
             ],
             correct: 2,
-            explain: "Bản chất tính diện tích này là tích phân suy rộng: I = ∫_0^{+∞} [1/(x^2+1)] dx = [arctan(x)] từ 0 đến +∞. Khi x tiến ra vô cực, góc có tan bằng vô cực tiến sát về góc vuông π/2. Arctan(0) = 0. Diện tích bằng π/2.",
-            trick: "Mẹo hình học: Đồ thị hình chuông Cauchy kinh điển kéo dài từ 0 tới vô cực ôm lấy một diện tích bằng một nửa vầng trăng tròn (π/2)."
+            explain: "Bản chất tính diện tích này là tích phân suy rộng: $I = \\int_0^{+\\infty} \\frac{1}{x^2+1} dx = [\\arctan(x)]_0^{+\\infty}$. Khi $x$ tiến ra vô cực, góc có tan bằng vô cực tiến sát về góc vuông $\\frac{\\pi}{2}$. $\\arctan(0) = 0$. Diện tích bằng $\\frac{\\pi}{2}$.",
+            trick: "Mẹo hình học: Đồ thị hình chuông Cauchy kinh điển kéo dài từ 0 tới vô cực ôm lấy một diện tích bằng đúng một nửa vầng trăng tròn ($\\frac{\\pi}{2}$)."
         },
 
         // ================= BÀI TẬP KHÓ (5 câu) =================
         {
             type: "kho",
-            question: "Tính tích phân suy rộng (sử dụng phương pháp từng phần): I = ∫_0^{+∞} x * e^{-x} dx",
+            question: "Tính tích phân suy rộng (sử dụng phương pháp từng phần): $I = \\int_0^{+\\infty} x \\cdot e^{-x} dx$",
             options: [
-                "I = 0",
-                "I = 1",
-                "I = +∞",
-                "I = 2"
+                "$I = 0$",
+                "$I = 1$",
+                "$I = +\\infty$",
+                "$I = 2$"
             ],
             correct: 1,
-            explain: "Đặt u = x, dv = e^{-x}dx => du = dx, v = -e^{-x}. Tích phân từng phần: [-x*e^{-x}] từ 0 đến t + ∫_0^t e^{-x}dx. Khi t → +∞, quy tắc L'Hospital cho thấy t/e^t → 0. Phần tích phân còn lại là ∫_0^{+∞} e^{-x}dx = 1. Kết quả cuối cùng là 1.",
-            trick: "Mẹo DUYMT dựa vào hàm Gamma định hướng: Tích phân dạng ∫_0^{+∞} x^n * e^{-x} dx luôn luôn cho kết quả bằng đúng n! (n giai thừa). Ở đây n = 1, kết quả là 1! = 1."
+            explain: "Đặt $u = x, dv = e^{-x}dx \\Rightarrow du = dx, v = -e^{-x}$. Tích phân từng phần: $[-x\\cdot e^{-x}]_0^t + \\int_0^t e^{-x}dx$. Khi $t \\rightarrow +\\infty$, quy tắc L'Hospital cho thấy $\\frac{t}{e^t} \\rightarrow 0$. Phần tích phân còn lại là $\\int_0^{+\\infty} e^{-x}dx = 1$. Kết quả cuối cùng là $1$.",
+            trick: "Mẹo DUYMT dựa vào hàm Gamma định hướng: Tích phân dạng $\\int_0^{+\\infty} x^n \\cdot e^{-x} dx$ luôn luôn cho kết quả bằng đúng $n!$ ($n$ giai thừa). Ở đây $n = 1$, kết quả là $1! = 1$."
         },
         {
             type: "kho",
-            question: "Sử dụng tiêu chuẩn so sánh vĩ mô, hãy xác định tính chất của tích phân: I = ∫_1^{+∞} [ (x^2 + 3) / (2x^4 + x^3 + 1) ] dx",
+            question: "Sử dụng tiêu chuẩn so sánh vĩ mô, hãy xác định tính chất của tích phân: $I = \\int_1^{+\\infty} \\frac{x^2 + 3}{2x^4 + x^3 + 1} dx$",
             options: [
                 "Phân kỳ vì tử số tiến ra vô tận.",
-                "Hội tụ vì ở vô cực, hàm số hành xử tương đương với hàm cấu trúc 1/(2x^2) có p = 2 > 1.",
+                "Hội tụ vì ở vô cực, hàm số hành xử tương đương với hàm cấu trúc $\\frac{1}{2x^2}$ có $p = 2 > 1$.",
                 "Hội tụ về giá trị 0.",
                 "Phân kỳ vì mẫu số có đa thức quá phức tạp."
             ],
             correct: 1,
-            explain: "Học tư duy cấu trúc vĩ mô của DUYMT: Khi x tiến ra xa rìa vũ trụ (+∞), những số hạng bậc thấp không còn ý nghĩa. Hàm số sẽ bị chi phối hoàn toàn bởi tỷ số của hai bậc cao nhất: x^2 / 2x^4 = 1 / (2x^2). Vì số mũ p = 2 > 1, tích phân gốc chắc chắn hội tụ.",
-            trick: "Mẹo liếc mắt nhìn nhanh: Lấy bậc cao nhất của Mẫu trừ đi bậc cao nhất của Tử: 4 - 2 = 2. Vì kết quả hiệu số bậc lớn hơn 1, kết luận ngay lập tức là HỘI TỤ."
+            explain: "Học tư duy cấu trúc vĩ mô của DUYMT: Khi $x$ tiến ra xa rìa vũ trụ ($+\\infty$), những số hạng bậc thấp không còn ý nghĩa. Hàm số sẽ bị chi phối hoàn toàn bởi tỷ số của hai bậc cao nhất: $\\frac{x^2}{2x^4} = \\frac{1}{2x^2}$. Vì số mũ $p = 2 > 1$, tích phân gốc chắc chắn hội tụ.",
+            trick: "Mẹo liếc mắt nhìn nhanh bậc vĩ mô: Lấy bậc cao nhất của Mẫu trừ đi bậc cao nhất của Tử: $4 - 2 = 2$. Vì kết quả hiệu số bậc lớn hơn 1, kết luận ngay lập tức là HỘI TỤ."
         },
         {
             type: "kho",
-            question: "Xét sự hội tụ của tích phân suy rộng sau: I = ∫_2^{+∞} [ (x^3 + 1) / (\sqrt{x^7 + 2x + 5}) ] dx",
+            question: "Xét sự hội tụ của tích phân suy rộng sau: $I = \\int_2^{+\\infty} \\frac{x^3 + 1}{\\sqrt{x^7 + 2x + 5}} dx$",
             options: [
-                "Phân kỳ vì hiệu số bậc vĩ mô cho ra hệ số p = 1/2 ≤ 1.",
+                "Phân kỳ vì hiệu số bậc vĩ mô cho ra hệ số $p = 1/2 \\le 1$.",
                 "Hội tụ vì bậc của mẫu lớn hơn bậc của tử.",
                 "Hội tụ vì căn bậc hai triệt tiêu bậc cao.",
                 "Phân kỳ vì hàm số không xác định tại vô cực."
             ],
             correct: 0,
-            explain: "Mổ xẻ bậc ở vô cực: Tử số tương đương x^3. Mẫu số tương đương \sqrt{x^7} = x^{7/2} = x^{3.5}. Tỷ số hành vi vĩ mô là x^3 / x^{3.5} = 1 / x^{0.5}. Ở đây dưới mẫu có số mũ p = 0.5. Vì p = 0.5 ≤ 1 nên tích phân này bị kéo rơi vào hố đen phân kỳ.",
-            trick: "Mẹo DUYMT tốc độ: Bậc tử = 3. Bậc mẫu = 7/2 = 3.5. Lấy Mẫu trừ Tử: 3.5 - 3 = 0.5. Hiệu số không vượt nổi vạch ranh giới 1 (0.5 ≤ 1) -> Chọn ngay phương án PHÂN KỲ."
+            explain: "Mổ xẻ bậc ở vô cực: Tử số tương đương $x^3$. Mẫu số tương đương $\\sqrt{x^7} = x^{7/2} = x^{3.5}$. Tỷ số hành vi vĩ mô là $\\frac{x^3}{x^{3.5}} = \\frac{1}{x^{0.5}}$. Ở đây dưới mẫu có số mũ $p = 0.5$. Vì $p = 0.5 \\le 1$ nên tích phân này bị kéo rơi vào hố đen phân kỳ.",
+            trick: "Mẹo DUYMT tốc độ: Bậc tử = 3. Bậc mẫu = $7/2 = 3.5$. Lấy Mẫu trừ Tử: $3.5 - 3 = 0.5$. Hiệu số không vượt nổi vạch ranh giới số 1 ($0.5 \\le 1$) -> Chọn ngay phương án PHÂN KỲ."
         },
         {
             type: "kho",
-            question: "Tính giá trị của tích phân suy rộng có chứa logarit: I = ∫_1^{+∞} (ln x / x^2) dx",
+            question: "Tính giá trị của tích phân suy rộng có chứa logarit: $I = \\int_1^{+\\infty} \\frac{\\ln x}{x^2} dx$",
             options: [
-                "I = +∞ (Phân kỳ)",
-                "I = 2",
-                "I = 1",
-                "I = 1/2"
+                "$I = +\\infty$ (Phân kỳ)",
+                "$I = 2$",
+                "$I = 1$",
+                "$I = 1/2$"
             ],
             correct: 2,
-            explain: "Tích phân từng phần: Đặt u = ln x, dv = dx/x^2 => du = dx/x, v = -1/x. Ta có I = [-ln x / x] từ 1 đến +∞ + ∫_1^{+∞} (1/x^2) dx. Giới hạn lim_{t→+∞} (ln t / t) = 0 theo L'Hospital. Tích phân còn lại bằng 1/(2-1) = 1. Tổng kết quả bằng 1.",
-            trick: "Mẹo DUYMT: Hàm đa thức dưới mẫu x^2 có sức mạnh kéo đè bẹp sự tăng trưởng chậm chạp của hàm ln(x) trên tử, biến bài toán trở lại lõi hội tụ của 1/x^2."
+            explain: "Tích phân từng phần: Đặt $u = \\ln x, dv = \\frac{dx}{x^2} \\Rightarrow du = \\frac{dx}{x}, v = -\\frac{1}{x}$. Ta có $I = [-\\frac{\\ln x}{x}]_1^{+\\infty} + \\int_1^{+\\infty} \\frac{1}{x^2} dx$. Giới hạn $\\lim_{t\\rightarrow+\\infty} \\frac{\\ln t}{t} = 0$ theo L'Hospital. Tích phân còn lại bằng $\\frac{1}{2-1} = 1$. Tổng kết quả bằng $1$.",
+            trick: "Mẹo DUYMT: Hàm đa thức dưới mẫu $x^2$ có sức mạnh khổng lồ kéo đè bẹp sự tăng trưởng chậm chạp của hàm $\\ln(x)$ trên tử, biến bài toán trở lại lõi hội tụ của $\\frac{1}{x^2}$."
         },
         {
             type: "kho",
-            question: "Tính tích phân suy rộng đặc biệt sau: I = ∫_{-∞}^{+\infty} [ 1 / (x^2 + 1) ] dx",
+            question: "Tính tích phân suy rộng đặc biệt sau: $I = \\int_{-\\infty}^{+\\infty} \\frac{1}{x^2 + 1} dx$",
             options: [
-                "I = 0 (Do tính chất đối xứng của hàm chẵn)",
-                "I = π",
-                "I = π/2",
-                "I = +∞ (Phân kỳ do kéo dài cả hai đầu)"
+                "$I = 0$ (Do tính chất đối xứng của hàm chẵn)",
+                "$I = \\pi$",
+                "$I = \\pi/2$",
+                "$I = +\\infty$ (Phân kỳ do kéo dài cả hai đầu)"
             ],
             correct: 1,
-            explain: "Tích phân suy rộng kéo dài ra cả hai phía vô cực biên. Ta tách ra thành hai vùng qua điểm gốc: I = ∫_{-∞}^0 + ∫_0^{+∞}. Mỗi bên đối xứng đều đóng góp một lượng diện tích bằng lim_{t→+∞} arctan(t) = π/2. Do đó tổng diện tích toàn không gian dưới đường cong bằng π/2 + π/2 = π.",
-            trick: "Mẹo DUYMT: Hàm hình chuông Cauchy quét sạch từ âm vô cực đến dương vô cực phủ kín diện tích sàn bằng đúng chu vi một nửa vòng tròn đơn vị (π)."
+            explain: "Tích phân suy rộng kéo dài ra cả hai phía vô cực biên. Ta tách ra thành hai vùng qua điểm gốc: $I = \\int_{-\\infty}^0 + \\int_0^{+\\infty}$. Mỗi bên đối xứng đều đóng góp một lượng diện tích bằng $\\lim_{t\\rightarrow+\\infty} \\arctan(t) = \\frac{\\pi}{2}$. Do đó tổng diện tích toàn không gian dưới đường cong bằng $\\frac{\\pi}{2} + \\frac{\\pi}{2} = \\pi$.",
+            trick: "Mẹo DUYMT: Hàm hình chuông Cauchy quét sạch từ âm vô cực đến dương vô cực phủ kín diện tích sàn bằng đúng chu vi một nửa vòng tròn đơn vị ($\\pi$)."
         }
     ];
 
@@ -551,6 +565,11 @@
             `;
             quizContainer.appendChild(quizBox);
         });
+        
+        // Gọi MathJax dịch trang lần đầu tiên
+        if (window.MathJax && window.MathJax.typeset) {
+            window.MathJax.typeset();
+        }
         updateProgressBar();
     }
 
@@ -582,6 +601,11 @@
         }
 
         explainBox.style.display = "block";
+        
+        // Yêu cầu MathJax cập nhật và vẽ lại công thức trong hộp lời giải vừa hiện ra
+        if (window.MathJax && window.MathJax.typeset) {
+            window.MathJax.typeset();
+        }
     }
 
     // Hàm chuyển câu tiếp theo
@@ -594,6 +618,11 @@
         if (currentQuestionIndex < quizData.length) {
             const nextBox = document.getElementById(`q-${currentQuestionIndex}`);
             nextBox.classList.add('active');
+            
+            // Yêu cầu MathJax dịch câu hỏi mới
+            if (window.MathJax && window.MathJax.typeset) {
+                window.MathJax.typeset();
+            }
             updateProgressBar();
         } else {
             showResult();
